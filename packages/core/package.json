@@ -1,0 +1,27 @@
+{
+  "name": "@a-to-a/core",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "db": "sst shell drizzle-kit",
+    "db:pull": "sst shell drizzle-kit introspect",
+    "db:push": "sst shell drizzle-kit push",
+    "db:seed": "sst shell bun run src/seed.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "drizzle-kit": "^0.24.2"
+  },
+  "dependencies": {
+    "@planetscale/database": "^1.19.0",
+    "@tsconfig/node20": "20.1.4",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.33.0",
+    "sst": "^3.1.51"
+  }
+}
