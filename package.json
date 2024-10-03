@@ -1,0 +1,27 @@
+{
+  "name": "a-to-a",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "sst dev",
+    "deploy": "sst deploy",
+    "sso": "aws sso login --sso-session=boogie",
+    "typecheck": "bun --filter=* typecheck"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/aws-lambda": "8.10.145",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "drizzle-zod": "^0.5.1",
+    "sst": "^3.1.52",
+    "zod": "^3.23.8"
+  }
+}
