@@ -3,7 +3,7 @@
 ## Built with
 
 - [SST](https://sst.dev)
-- [Drizzle](https://drizzle.dev)
+- [Drizzle](https://orm.drizzle.team)
 - [Hono](https://hono.dev)
 - [PlanetScale](https://planetscale.com)
 
