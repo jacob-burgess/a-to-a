@@ -63,6 +63,18 @@ export module DaySales {
     )
   );
 
+  export const distinctDates = fn(z.object({}), async () =>
+    useTransaction(async (tx) =>
+      tx
+        .selectDistinct({
+          date: daySalesTable.date,
+        })
+        .from(daySalesTable)
+        .orderBy(asc(daySalesTable.date))
+        .then((results) => results.map((r) => r.date))
+    )
+  );
+
   export const create = fn(createInsertSchema(daySalesTable), async (input) =>
     createMany([input])
   );
