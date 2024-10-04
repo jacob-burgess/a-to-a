@@ -133,7 +133,7 @@ app.get("/sales/:date", async (c) => {
         <table>
           <tr>
             <th>Theater</th>
-            <th>Sales</th>
+            <th>Total Sales</th>
           </tr>
           ${sales.map(
             (sale: any) => html`

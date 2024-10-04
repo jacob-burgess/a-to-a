@@ -1,4 +1,4 @@
-import { asc, eq, sum } from "drizzle-orm";
+import { asc, eq, sql, sum } from "drizzle-orm";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 import { useTransaction } from "../database/transaction";
@@ -37,12 +37,13 @@ export module DaySales {
         tx
           .select({
             theater: theaterTable.name,
-            sales: sum(daySalesTable.sales).as("sales"),
+            sales: sum(daySalesTable.sales).as("total_sales"),
           })
           .from(daySalesTable)
           .innerJoin(theaterTable, eq(daySalesTable.theaterId, theaterTable.id))
           .where(eq(daySalesTable.date, date))
           .groupBy(theaterTable.id)
+          .orderBy(sql`total_sales desc`)
       // .orderBy(desc(daySalesTable.sales))
     )
   );
